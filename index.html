@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>서버 시계 — hcuhs.kr</title>
+    <title>hcuhs.kr 서버 시간</title>
     <style>
         @font-face {
             font-family: 'Pretendard';
@@ -224,7 +224,7 @@
         <div class="sync-status" id="syncStatus">서버 시간 동기화 중…</div>
     </div>
 
-    <div class="footer">copyright &copy; 2026. 민준 · All rights reserved.</div>
+    <div class="footer">copyright &copy; 2026. 민준<br>All rights reserved.</div>
 
     <script>
         // ─── 파티클 ──────────────────────────────────────
@@ -270,13 +270,13 @@
                     const serverTime = await api();
                     const elapsed = Date.now() - start;
                     timeOffset = serverTime - start - elapsed / 2;
-                    syncEl.textContent = '서버 시간 동기화 완료';
+                    syncEl.textContent = '● 서버 시간 동기화 완료';
                     syncEl.className = 'sync-status synced';
                     setTimeout(() => { syncEl.style.opacity = '0.4'; }, 4000);
                     return;
                 } catch (e) {}
             }
-            syncEl.textContent = '동기화 실패 — 로컬 시간 사용 중';
+            syncEl.textContent = '○ 동기화 실패 — 로컬 시간 사용 중';
             syncEl.className = 'sync-status failed';
         }
 
